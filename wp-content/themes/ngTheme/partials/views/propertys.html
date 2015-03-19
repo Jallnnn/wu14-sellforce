@@ -1,7 +1,8 @@
 <section class="container">
   <div class="row">
-    <div class="col-md-12" ng-bind-html="trustedHtml">
-      {{data[0].title}}
+    <div class="col-md-12" ng-repeat="property in propertyData">
+      <h2>{{property.title}}</h2>
+      <div ng-bind-html="property.content"></div>
     </div>
   </div>
 </section>
