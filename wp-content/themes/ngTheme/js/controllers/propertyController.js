@@ -3,7 +3,7 @@ app.controller("propertyController", ["$scope", "$sce", "Posts", function($scope
 
   Posts.get();
 
-  $scope.$on("gotPostsData", function(event, data) {
+  $scope.$on("gotPostData", function(event, data) {
     console.log("propertyController on gotPostsData: ", data[0].title);
   });
 }]);
