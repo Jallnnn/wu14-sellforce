@@ -206,3 +206,63 @@ if ( function_exists( 'register_nav_menus' ) ) {
 }
 
 add_action( 'tgmpa_register', 'ngTheme_register_required_plugins' );
+
+// Register new taxonomy
+
+function property_init()
+{
+  register_taxonomy(
+    "property",
+    "attachment", 
+    array(
+      "label"=>__("Property"),
+      "rewrite"=> array("slug"=>"property")
+    )
+  );
+}
+
+add_action("init", "property_init");
+
+function sf_add_property_taxonomy_to_posts()
+{
+  register_taxonomy_for_object_type("property", "post");
+}
+
+add_action("init", "sf_add_property_taxonomy_to_posts");
+
+add_filter(
+  "json_prepare_post", 
+  function($data, $post, $context)
+  {
+    $data["property_data"] = array(
+        "pris"=>get_post_meta($post["ID"], "pris", true),
+        "bostadstyp"=>get_post_meta($post["ID"], "bostadstyp", true),
+        "rum"=>get_post_meta($post["ID"], "rum", true),
+        "boarea"=>get_post_meta($post["ID"], "boarea", true),
+        "tomtarea"=>get_post_meta($post["ID"], "tomtarea", true),
+        "avgift"=>get_post_meta($post["ID"], "avgift", true),
+        "byggar"=>get_post_meta($post["ID"], "byggar", true),
+        "stad"=>get_post_meta($post["ID"], "stad", true),
+        "lan"=>get_post_meta($post["ID"], "lan", true),
+        "kommun"=>get_post_meta($post["ID"], "kommun", true),
+        "vaning"=>get_post_meta($post["ID"], "vaning", true),
+        "balkong"=>get_post_meta($post["ID"], "balkong", true),
+        "hiss"=>get_post_meta($post["ID"], "hiss", true),
+      );
+    return $data;
+  }, 
+  10, 
+  3
+);
+
+function addMetaSearch()
+{
+  global $wp;
+
+  array_push($wp->public_query_vars, 'meta_key');
+  array_push($wp->public_query_vars, 'meta_value');
+}
+
+add_action("init", "addMetaSearch");
+
+?>
