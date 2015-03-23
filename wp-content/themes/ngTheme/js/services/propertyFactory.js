@@ -1,5 +1,5 @@
 app.factory("PropertyFactory", ["WPRest", "$sce", function(WPRest, $sce) {
-  var postServant = {
+  var propertyServant = {
     get : function(postId) {
       var callUrl = postId ? "/posts/"+postId : "/posts";
       WPRest.restCall(callUrl, "GET", {}, {
@@ -33,5 +33,5 @@ app.factory("PropertyFactory", ["WPRest", "$sce", function(WPRest, $sce) {
     }
   };
 
-  return postServant;
+  return propertyServant;
 }]);
