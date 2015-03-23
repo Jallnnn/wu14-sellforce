@@ -9,7 +9,7 @@ app.config(["$routeProvider", "$locationProvider", "SITE_INFO", function($routeP
       controller: "homeController"
     })
     .when("/property", {
-      templateUrl: SITE_INFO.partials+"views/propertys.html",
+      templateUrl: SITE_INFO.partials+"views/property.html",
       controller: "propertyController"
     })
     .otherwise({
