@@ -12,6 +12,14 @@ app.config(["$routeProvider", "$locationProvider", "SITE_INFO", function($routeP
       templateUrl: SITE_INFO.partials+"views/property.html",
       controller: "propertyController"
     })
+    .when("/contact", {
+      templateUrl: SITE_INFO.partials+"views/contact.html",
+      controller: "contactController"
+    })
+    .when("/about", {
+      templateUrl: SITE_INFO.partials+"views/about.html",
+      controller: "aboutController"
+    })
     .otherwise({
       redirectTo: "/"
     });
