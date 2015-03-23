@@ -1,9 +1,9 @@
-app.factory("Posts", ["WPRest", "$sce", function(WPRest, $sce) {
+app.factory("PropertyFactory", ["WPRest", "$sce", function(WPRest, $sce) {
   var postServant = {
     get : function(postId) {
       var callUrl = postId ? "/posts/"+postId : "/posts";
       WPRest.restCall(callUrl, "GET", {}, {
-        broadcastName: "gotPostData",
+        broadcastName: "gotPropertyData",
         callback: function(data) {
           if (data.constructor.name == "Array") {
             data.forEach(function(item) {
