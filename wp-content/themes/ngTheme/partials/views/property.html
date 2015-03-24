@@ -1,9 +1,9 @@
 <section class="container">
   <div class="row">
-    <div class="col-md-12" ng-repeat="property in propertyData">
+    <div class="col-md-12" ng-repeat="property in propertyData" ng-click="showPropertyDetail(property.title)">
       <h2>{{property.title}}</h2>
       <div ng-bind-html="property.content"></div>
-      <div>{{property.property_data.pris}}</div>
+      <div>Pris: {{property.property_data.pris}}</div>
     </div>
   </div>
 </section>
