@@ -1,4 +1,4 @@
-app.controller("propertyController", ["$scope", "PropertyFactory", function($scope, PropertyFactory)
+app.controller("propertyController", ["$scope", "$location", "PropertyFactory", function($scope, $location, PropertyFactory)
 {
   console.log("propertyController is alive!");
 
@@ -10,10 +10,11 @@ app.controller("propertyController", ["$scope", "PropertyFactory", function($sco
     $scope.propertyData = data;
   });
 
-  $scope.showPropertyDetail = function(detailTitle){
-    alert("Going to show " + detailTitle);
+  $scope.showPropertyDetail = function(detailTitle, detailLink){
+    alert("Going to show " + detailTitle + ". With link: " + detailLink);
 
     // use $location.url(---some---) to switch to detail view
+    // $location.url(detailLink);
   };
 
 }]);
