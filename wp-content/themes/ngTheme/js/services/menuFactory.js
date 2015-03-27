@@ -13,9 +13,9 @@ app.factory("Menus", ["WPRest", function(WPRest)
 					broadcastInstructions =
 					{
 						broadcastName : "gotMenuLinks",
-						callback : function()
+						callback : function(data)
 						{
-							
+							return data;
 						}
 					};
 				}
