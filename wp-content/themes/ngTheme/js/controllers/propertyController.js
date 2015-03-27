@@ -1,20 +1,26 @@
-app.controller("propertyController", ["$scope", "$location", "PropertyFactory", function($scope, $location, PropertyFactory)
+app.controller("propertyController", ["$scope", "$location", "PropertyFactory",
+function($scope, $location, PropertyFactory)
 {
   console.log("propertyController is alive!");
 
-  PropertyFactory.get();
+  // FLYTTAT DENNA KODEN TILL "homeController.js"
+  // Istället för "property.html" så returneras det numera i "home.html"
+  // - Tobias
 
-  $scope.$on("gotPropertyData", function(event, data)
-  {
-    console.log("propertyController on gotPostsData: ", data);
-    $scope.propertyData = data;
-  });
+  // PropertyFactory.get();
 
-  $scope.showPropertyDetail = function(detailTitle, detailLink){
-    alert("Going to show " + detailTitle + ". With link: " + detailLink);
+  // $scope.$on("gotPropertyData", function(event, data)
+  // {
+  //   console.log("propertyController on gotPostsData: ", data);
+  //   $scope.propertyData = data;
+  // });
 
-    // use $location.url(---some---) to switch to detail view
-    // $location.url(detailLink);
-  };
+  // $scope.showPropertyDetail = function(detailTitle, detailLink)
+  // {
+  //   alert("Going to show " + detailTitle + ". With link: " + detailLink);
+
+  //   // use $location.url(---some---) to switch to detail view
+  //   // $location.url(detailLink);
+  // };
 
 }]);
