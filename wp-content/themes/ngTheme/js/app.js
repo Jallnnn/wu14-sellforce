@@ -1,26 +1,33 @@
 //app declaration and dependency injection
 var app = angular.module("ngTheme", ["ngRoute", "ui.bootstrap"]);
 //app config
-app.config(["$routeProvider", "$locationProvider", "SITE_INFO", function($routeProvider, $locationProvider, SITE_INFO) {
+app.config(["$routeProvider", "$locationProvider", "SITE_INFO",
+function($routeProvider, $locationProvider, SITE_INFO)
+{
   //route config
   $routeProvider
-    .when("/", {
+    .when("/",
+    {
       templateUrl: SITE_INFO.partials+"views/home.html",
       controller: "homeController"
     })
-    .when("/property", {
+    .when("/property",//ÄNDRA TILL "fastigheter"!!!
+    {
       templateUrl: SITE_INFO.partials+"views/property.html",
       controller: "propertyController"
     })
-    .when("/contact", {
+    .when("/vara-maklare",
+    {
       templateUrl: SITE_INFO.partials+"views/contact.html",
       controller: "contactController"
     })
-    .when("/about", {
+    .when("/om-oss",
+    {
       templateUrl: SITE_INFO.partials+"views/about.html",
       controller: "aboutController"
     })
-    .otherwise({
+    .otherwise(
+    {
       redirectTo: "/"
     });
 
