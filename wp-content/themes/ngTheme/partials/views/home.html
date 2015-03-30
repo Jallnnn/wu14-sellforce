@@ -4,9 +4,12 @@
       <h2>Hem</h2>
       <!-- <p>You probably want to start by reading the <a href="http://wp-api.org/guides/getting-started.html" target="_blank">WP JSON REST API documentation.</a></p> -->
       <div class="col-md-12" ng-repeat="property in propertyData" ng-click="showPropertyDetail(property.title, property.link)">
-      <h2>{{property.post.title}}</h2>
-      <div ng-bind-html="property.post.content"></div>
-      <div>Pris: {{property.propertyData.pris}} :-</div>
+      <img class="annonsimg" src={{property.media[0].source}}>
+      <div class="anons">
+          <h2>{{property.post.title}}</h2>
+          <div ng-bind-html="property.post.content"></div>
+          <div>Pris: {{property.propertyData.pris}} :-</div>
+      </div>
     </div>
     </article>
   </div>
