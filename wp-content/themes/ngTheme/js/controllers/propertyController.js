@@ -1,26 +1,19 @@
-app.controller("propertyController", ["$scope", "$location", "PropertyFactory",
-function($scope, $location, PropertyFactory)
-{
-  console.log("propertyController is alive!");
+app.controller("propertyController", ["$scope", "Property" ,"$routeParams", "SITE_INFO", function($scope, Property, $routeParams, SITE_INFO) {
+  console.log("propertyController is alive! params: ", $routeParams);
 
-  // FLYTTAT DENNA KODEN TILL "homeController.js"
-  // Istället för "property.html" så returneras det numera i "home.html"
-  // - Tobias
+  //Property.find() accepts an object with key->value pairs that
+  //map to the search filters we need in our GET request
+  Property.find($routeParams);
+  $scope.partialsDir = SITE_INFO.partials;
 
-  // PropertyFactory.get();
+  //the interval for all carousels
+  // $scope.carouselInterval = 5000;
 
-  // $scope.$on("gotPropertyData", function(event, data)
-  // {
-  //   console.log("propertyController on gotPostsData: ", data);
-  //   $scope.propertyData = data;
-  // });
-
-  // $scope.showPropertyDetail = function(detailTitle, detailLink)
-  // {
-  //   alert("Going to show " + detailTitle + ". With link: " + detailLink);
-
-  //   // use $location.url(---some---) to switch to detail view
-  //   // $location.url(detailLink);
-  // };
+  $scope.$on("foundProperty", function(event, data) {
+    console.log("propertyController on foundProperty: ", data);
+    $scope.property = data;
+    aGlobalVar = $scope.property;
+    if (data.length === 0) { return; }
+  });
 
 }]);

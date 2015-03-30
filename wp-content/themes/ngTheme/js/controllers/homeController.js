@@ -1,15 +1,15 @@
 //"ngTheme" home controller.
 //dependent on $scope && WPService being injected to run
-app.controller("homeController", ["$scope", "$location", "PropertyFactory",
-function($scope, $location, PropertyFactory)
+app.controller("homeController", ["$scope", "$location", "Property",
+function($scope, $location, Property)
 {
   console.log("homeController alive!");
 
-  PropertyFactory.get();
+  Property.find();
 
-  $scope.$on("gotPropertyData", function(event, data)
+  $scope.$on("foundProperty", function(event, data)
   {
-    console.log("propertyController on gotPostsData: ", data);
+    console.log("propertyController on foundProperty: ", data);
     $scope.propertyData = data;
   });
 

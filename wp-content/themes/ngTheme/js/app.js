@@ -25,6 +25,17 @@ function($routeProvider, $locationProvider, SITE_INFO)
     {
       templateUrl: SITE_INFO.partials+"views/about.html",
       controller: "aboutController"
+<<<<<<< Updated upstream
+=======
+    })
+     .when("/search", {
+      templateUrl: SITE_INFO.partials+"views/propertyList.html",
+      controller: "propertyListController"
+    })
+    .otherwise(
+    {
+      redirectTo: "/"
+>>>>>>> Stashed changes
     });
     //.otherwise(
     //{
