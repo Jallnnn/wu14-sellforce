@@ -2,12 +2,23 @@
 //which is a service we have created to handle all
 //REST communication to/from WordPress.
 app.factory("Property", ["WPRest", "$sce", function(WPRest, $sce) {
+
+  //this array will hold all finished property models
+  //and is what we will broadcast to the app when everything
+  //is done
+  var resultsToBroadcast = [];
+
+
   var propertyServant = {
-    find : function(searchParams) {
+    find : function(searchParams, pageNo, startOver) {
  
- 
+      pageNo = pageNo ? pageNo : 1;
       searchParams = searchParams ? searchParams : {};
  
+
+      if (startOver || pageNo === 1) {
+        resultsToBroadcast.length = 0;
+      }
       
       /*
         example searchParams object:
@@ -20,28 +31,19 @@ app.factory("Property", ["WPRest", "$sce", function(WPRest, $sce) {
       //we are always searching for posts
       //in the category "properties"
       //we are always searching for posts
-      var callUrl = "/properties";
+      var callUrl = "/properties?page="+pageNo;
 
-      var first = true;
       //build a REST callUrl from search params, 
       for (var i in searchParams) {
         //searchParams object keys are filter keys, 
         //searchParams object values are filter values
         if (searchParams[i].constructor.name != "Object") {
-          callUrl += first ?
-            "?filter["+i+"]="+searchParams[i] :
-            "&filter["+i+"]="+searchParams[i];
+          callUrl +="&filter["+i+"]="+searchParams[i];
         } else {
           for (var j in searchParams[i]) {
-            callUrl += first ?
-            "?filter["+i+"]["+j+"]="+searchParams[i][j] :
-            "&filter["+i+"]["+j+"]="+searchParams[i][j];
-
-            first = false;
+            callUrl +="&filter["+i+"]["+j+"]="+searchParams[i][j];
           }
         }
-
-        first = false;
       }
  
    
@@ -64,12 +66,6 @@ app.factory("Property", ["WPRest", "$sce", function(WPRest, $sce) {
               postData.splice(i, 1);
             }
           }
-
-
-          //this array will hold all finished property models
-          //and is what we will broadcast to the app when everything
-          //is done
-          var resultsToBroadcast = [];
 
 
           //loop through all posts and find their property tag value
