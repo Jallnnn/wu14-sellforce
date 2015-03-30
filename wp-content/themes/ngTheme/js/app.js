@@ -25,11 +25,11 @@ function($routeProvider, $locationProvider, SITE_INFO)
     {
       templateUrl: SITE_INFO.partials+"views/about.html",
       controller: "aboutController"
-    })
-    .otherwise(
-    {
-      redirectTo: "/"
     });
+    //.otherwise(
+    //{
+    //  redirectTo: "/"
+    //});
 
   $locationProvider.html5Mode(true);
 }])

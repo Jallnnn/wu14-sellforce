@@ -15,10 +15,13 @@ function($scope, $location, PropertyFactory)
 
   $scope.showPropertyDetail = function(detailTitle, detailLink)
   {
-    alert("Going to show " + detailTitle + ". With link: " + detailLink);
+    // alert below not needed anymore, but it served us well.
+    // alert("Going to show " + detailTitle + ". With link: " + detailLink);
 
-    // use $location.url(---some---) to switch to detail view
-    // $location.url(detailLink);
+    // split the url with / , and then pass the [4]'th to the url,
+    // wich is the page itself. - Milo 
+    var dLink = detailLink.split("/");
+    $location.url(dLink[4]);
   };
 
 
@@ -32,7 +35,7 @@ function($scope, $location, PropertyFactory)
   //   console.log("homeController on gotPageData: ", data);
   //   console.log("gotPageData, the title: ", data[0].title);
 
-    
+
   //     angular protects us from "dangerous" HTML by converting it to a string
 
   //     if we want to show HTML from a string in DOM
@@ -40,7 +43,7 @@ function($scope, $location, PropertyFactory)
 
   //     this is done using the $sce service on the HTML string in JS
   //     and the ng-bind-html directive in the view
-    
+
   //   var title = '<h2>' + data[0].title + '</h2>';
   //   var content = data[0].content;
 
