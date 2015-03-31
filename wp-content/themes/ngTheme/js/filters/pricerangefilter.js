@@ -1,11 +1,15 @@
 app.filter('PriceRange', [function () {
-  return function (properties, range) {
+  return function (properties, prisrange) {
     if (!properties) { return; }
     // console.log("properties: ", properties);
     // console.log("range: ", range);
 
     var filtered = [];
     
+    var range= [];
+    range[0]=prisrange.substr(0,prisrange.indexOf(';'))+"000";
+    range[1]=prisrange.substr(prisrange.indexOf(';')+1,prisrange.length-1)+"000";
+// console.log("range: ", range);
     if (range.length === 0) {
       return properties;
     }

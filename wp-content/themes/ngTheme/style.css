@@ -3,6 +3,10 @@ div.ng-scope {
   border: solid 1px #e7e7e7;
 }
 
+.form-group {
+  background-color:  #e7e7e7;
+}
+
 .annonsimg {
   width: 20%;
   /*height: 100%;*/

@@ -12,6 +12,15 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
     }
   */
 
+  $scope.pricevalue = "10;300";
+  $scope.options = {
+    from: 10,
+    to: 1000,
+    step: 10,
+    dimension: "tus SEK",
+    scale: [10, '|', 250, '|', 500, '|' , 750, '|', 1000]
+  };
+
   
   $scope.propFilters = {
     priceRange : [] //always length === 2
@@ -29,7 +38,8 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
     $scope.propFilters.typeRange = {
       apartment : true,
       villa : true,
-      radhus : true,
+      yard : true,
+      other :true,
       tomt : true,
       fritidshus : true
     };
