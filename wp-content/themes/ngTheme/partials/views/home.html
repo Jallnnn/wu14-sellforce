@@ -3,7 +3,7 @@
     <article class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
       <h2>Hem</h2>
       <!-- <p>You probably want to start by reading the <a href="http://wp-api.org/guides/getting-started.html" target="_blank">WP JSON REST API documentation.</a></p> -->
-      <div class="col-md-12" ng-repeat="property in propertyData" ng-click="showPropertyDetail()">
+      <div class="col-md-12" ng-repeat="property in propertyData" ng-click="showPropertyDetail(property.title, property.link)">
       <img class="annonsimg" src={{property.media[0].source}}>
       <div class="anons">
           <h2>{{property.post.title}}</h2>
