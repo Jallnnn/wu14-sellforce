@@ -10,8 +10,9 @@ function($scope, Pages, $sce)
 		{
 			if (data[i].slug == "om-oss")
 			{
-				var pageHtml = "<h2>" + data[i].title + "</h2>" + data[i].content;
-				$scope.trustedHtml = $sce.trustAsHtml(pageHtml);
+				$scope.pageData = data[i];
+				var pageContent = data[i].content;
+				$scope.trustedHtml = $sce.trustAsHtml(pageContent);
 			}
 		}
 	});
