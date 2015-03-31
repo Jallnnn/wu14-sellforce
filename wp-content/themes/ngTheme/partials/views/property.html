@@ -3,7 +3,7 @@
 
   <h2>{{property.post.title}}</h2>
 
-  <img class="annonsimg" src={{property.media[0].source}}>
+  <img class="" src={{property.media[0].source}}>
 
   <article class="col-xs-12 col-sm-12  col-md-3 col-lg-3  col-md-offset-1 col-lg-offset-1 row">
     <div>
@@ -22,10 +22,11 @@
         <li>Våning: {{property.propertyData.vaning}}</li>
         <li>Hiss: {{property.propertyData.hiss/1 ? "Ja" : "Nej"}}</li>
         <li>Balkong: {{property.propertyData.balkong/1 ? "Ja" : "Nej"}}</li>
-
-
-
       </ul>
+    </div>
+
+    <div class="col-md-12" ng-bind-html="property.post.content">
+     
     </div>
   </article>
 

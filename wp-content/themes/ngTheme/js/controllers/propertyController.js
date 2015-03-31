@@ -1,4 +1,4 @@
-app.controller("propertyController", ["$scope", "Property" ,"$routeParams", "SITE_INFO", function($scope, Property, $routeParams, SITE_INFO) {
+app.controller("propertyController", ["$scope", "Property" ,"$routeParams", "$sce", "SITE_INFO", function($scope, Property, $routeParams, $sce, SITE_INFO) {
   console.log("propertyController is alive! params: ", $routeParams);
 
   //Property.find() accepts an object with key->value pairs that
@@ -16,6 +16,9 @@ app.controller("propertyController", ["$scope", "Property" ,"$routeParams", "SIT
     if (data.length === 0) { return; }
 
     $scope.property = data[0];
+    console.log("our stuff", $scope.property);
+    
+
 
 
   });
