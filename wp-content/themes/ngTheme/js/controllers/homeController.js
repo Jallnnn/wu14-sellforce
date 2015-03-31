@@ -13,15 +13,18 @@ function($scope, $location, Property)
     $scope.propertyData = data;
   });
 
-  $scope.showPropertyDetail = function(detailTitle, detailLink)
+  $scope.showPropertyDetail = function()
   {
     // alert below not needed anymore, but it served us well.
     // alert("Going to show " + detailTitle + ". With link: " + detailLink);
 
     // split the url with / , and then pass the [4]'th to the url,
     // wich is the page itself. - Milo 
-    var dLink = detailLink.split("/");
-    $location.url(dLink[4]);
+    // console.log("Clicked property: ", this.property);
+    // console.log("Clicked property title: ", detailTitle);
+    // console.log("Clicked property link: ", detailLink);
+    // var dLink = detailLink.split("/");
+    $location.url("fastigheter/" + this.property.post.slug);
   };
 
 

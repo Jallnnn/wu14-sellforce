@@ -11,7 +11,7 @@ function($routeProvider, $locationProvider, SITE_INFO)
       templateUrl: SITE_INFO.partials+"views/home.html",
       controller: "homeController"
     })
-    .when("/property",//ÄNDRA TILL "fastigheter"!!!
+    .when("/fastigheter/:name",
     {
       templateUrl: SITE_INFO.partials+"views/property.html",
       controller: "propertyController"
