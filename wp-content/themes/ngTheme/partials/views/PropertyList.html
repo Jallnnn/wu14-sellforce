@@ -18,7 +18,30 @@
                 <input type="number" ng-model="propFilters.priceRange[1]" class="form-control" aria-describedby="to-price">
               </div>
             </div>
-           
+            <div class="form-group">
+              <label>Bostadstyp:</label>
+              <div class="checkbox">
+                <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="propFilters.typeRange.apartment" id="inlineCheckbox1" value="1"> Lägenhet
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="propFilters.typeRange.villa" id="inlineCheckbox2" value="1"> Villa
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="propFilters.typeRange.fritidshus" id="inlineCheckbox3" value="1"> Fritidshus
+                </label>
+                    <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="propFilters.typeRange.yard" id="inlineCheckbox4" value="1"> Gård
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="propFilters.typeRange.tomt" id="inlineCheckbox5" value="1"> Tomt
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" ng-model="propFilters.typeRange.other" id="inlineCheckbox5" value="1"> Övrigt
+                </label>
+              </div>
+              <button ng-click="resetPropTypeRange()" class="btn btn-success">Alla Typer</button>
+            </div>
             <div class="form-group">
               <button ng-click="filterReset()" class="btn btn-default">Filter Reset!</button>
             </div>
@@ -40,7 +63,7 @@
           <th>Pris:</th>
           <th>Post:</th>
         </tr>
-        <tr ng-repeat="model in propertyModels | PriceRange:propFilters.priceRange">
+        <tr ng-repeat="model in propertyModels | PriceRange:propFilters.priceRange | typeRange:propFilters.typeRange">
           <td>{{model.post.title}}</td>
           <td><div ng-bind-html="model.post.excerpt"></div></td>
           <td>{{model.propertyData.pris}} SEK</td>

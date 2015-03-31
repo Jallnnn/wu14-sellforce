@@ -25,13 +25,15 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
     };
   };
 
-  // $scope.resetPropTypeRange = function() {
-  //   $scope.propFilters.typeRange = {
-  //     Apartment : true,
-  //     House : true,
-  //     Townhouse : true
-  //   };
-  // };
+  $scope.resetPropTypeRange = function() {
+    $scope.propFilters.typeRange = {
+      apartment : true,
+      villa : true,
+      radhus : true,
+      tomt : true,
+      fritidshus : true
+    };
+  };
 
 
   //Property.find() accepts an object with key->value pairs that
