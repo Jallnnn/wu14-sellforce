@@ -40,13 +40,13 @@
                   <input type="checkbox" ng-model="propFilters.typeRange.tomt" id="inlineCheckbox5" value="1"> Tomt
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" ng-model="propFilters.typeRange.other" id="inlineCheckbox5" value="1"> Övrigt
+                  <input type="checkbox" ng-model="propFilters.typeRange.other" id="inlineCheckbox5" checked="checked" value="1"> Övrigt
                 </label>
               </div>
-              <button ng-click="resetPropTypeRange()" class="btn btn-success">Alla Typer</button>
+              <button ng-click="resetPropTypeRange()" class="btn btn-default">Alla Typer</button>
             </div>
             <div class="form-group">
-              <button ng-click="filterReset()" class="btn btn-default">Filter Reset!</button>
+              <button ng-click="filterReset()" class="btn btn-success">Filter Reset!</button>
             </div>
           </form>
         </div>
@@ -61,14 +61,19 @@
       <!-- Table -->
       <table class="table">
         <tr>
-          <th>Title:</th>
-          <th>Excerpt:</th>
-          <th>Pris:</th>
-          <th>Post:</th>
+          <th></th>
+          <th></th> 
+          <th>
+            <span class="glyphicon  glyphicon-arrow-up"  ng-click="changeOrderBy('propertyData.pris', true)"></span>
+            <span class="glyphicon  glyphicon-arrow-down" ng-click="changeOrderBy('propertyData.pris', false)"></span>
+          </th>
+          <th></th>
         </tr>
-        <tr ng-repeat="model in propertyModels | PriceRange:pricevalue | typeRange:propFilters.typeRange">
+        <tr ng-repeat="model in propertyModels | PriceRange:pricevalue | typeRange:propFilters.typeRange | orderBy:orderKey:reverse">
           <td>{{model.post.title}}</td>
-          <td><div ng-bind-html="model.post.excerpt"></div></td>
+          <td><img class="annonsimg" src={{model.media[0].source}}>
+            <div class="anons" ng-bind-html="model.post.excerpt"></div>
+          </td>
           <td>{{model.propertyData.pris}} SEK</td>
           <td><button class="btn btn-sm btn-success" ng-click="goTo('estate/'+model.post.slug)">All info</button></td>
         </tr>

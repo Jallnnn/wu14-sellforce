@@ -11,6 +11,16 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
       }
     }
   */
+  $scope.propFilters = {};
+  $scope.propFilters.priceRange = [];
+  $scope.propFilters.typeRange = {
+    apartment : true,
+    villa : true,
+    yard : true,
+    other :true,
+    tomt : true,
+    fritidshus : true
+  };
 
   $scope.pricevalue = "10;300";
   $scope.options = {
@@ -21,11 +31,6 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
     scale: [10, '|', 250, '|', 500, '|' , 750, '|', 1000]
   };
 
-  
-  $scope.propFilters = {
-    priceRange : [] //always length === 2
-   
-  };
 
   $scope.filterReset = function() {
     $scope.propFilters = {
@@ -50,7 +55,8 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
   //map to the search filters we need in our GET request
   //var pageNo = 1;
   Property.find($routeParams);
-
+  $scope.orderKey = "post.title";
+  $scope.reverse = false;
   //the interval for all carousels
   // $scope.carouselInterval = 5000;
 
@@ -61,6 +67,11 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
     //pageNo++;
     //Property.find($routeParams, pageNo);
   });
+
+  $scope.changeOrderBy = function(changeTo, reverse) {
+    $scope.reverse = reverse !== undefined ? reverse : $scope.reverse;
+    $scope.orderKey = changeTo;
+  };
 
   //a simple $scope method for changing urls using ng-click in views
   $scope.goTo = function(url) {
