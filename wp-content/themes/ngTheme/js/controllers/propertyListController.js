@@ -37,6 +37,16 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
       priceRange : [] //always length === 2
      
     };
+    $scope.pricevalue = "10;300";
+    $scope.propFilters.typeRange = {
+    apartment : true,
+    villa : true,
+    yard : true,
+    other :true,
+    tomt : true,
+    fritidshus : true
+  };
+   $scope.balkFilt="";
   };
 
   $scope.resetPropTypeRange = function() {
