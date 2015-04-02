@@ -17,6 +17,30 @@ app.factory("Pages", ["WPRest", function (WPRest) {
     delete : function(pageId) {
       var callUrl = "/pages/"+pageId;
       WPRest.restCall(callUrl, "DELETE", {}, "deletedPage");
+    },
+    find : function(searchParams) {
+      searchParams = searchParams ? searchParams : {};
+      
+      /*
+        example searchParams object:
+        {
+          "name" : "my-first-property"
+        }
+      */
+ 
+      var callUrl = "/pages";
+      var first = true;
+      //build a REST callUrl from search params, 
+      for (var i in searchParams) {
+        //searchParams object keys are filter keys, 
+        //searchParams object values are filter values
+        callUrl += first ?
+        "?filter["+i+"]="+searchParams[i] :
+        "&filter["+i+"]="+searchParams[i];
+        first = false;
+      }
+
+      WPRest.restCall(callUrl, "GET", {}, "foundPages");
     }
   };
 
