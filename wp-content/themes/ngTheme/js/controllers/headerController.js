@@ -5,6 +5,8 @@ function(Menus, $scope, $location, SITE_INFO)
 	console.log("headerController is alive!");
 	console.log("SITE_INFO: ", SITE_INFO);
 
+  $scope.partialsDir = SITE_INFO.partials;
+
 	// console.log("Menus.get(): ", Menus.get(3));
 
 	Menus.get(3);
