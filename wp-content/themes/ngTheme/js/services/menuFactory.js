@@ -18,10 +18,9 @@ function(WPRest, SITE_INFO)
 			menuItems[i].url = menuItems[i].url.replace(SITE_INFO.http_root, "/");
 			if (
 				menuItems[i].url.indexOf("vara-maklare") < 0 &&
-				menuItems[i].url.indexOf("om-oss") < 0 &&
 				menuItems[i].url != "/"
 				) {
-				menuItems[i].url = "/sida" + menuItems[i].url;
+				menuItems[i].url = "/sidor" + menuItems[i].url;
 			}
 
 			hash["_" + menuItems[i].ID] = menuItems[i];

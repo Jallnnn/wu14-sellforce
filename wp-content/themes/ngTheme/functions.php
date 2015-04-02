@@ -246,5 +246,5 @@ if ( function_exists( 'register_nav_menus' ) ) {
     );
 }
 
-
+remove_action('template_redirect', 'redirect_canonical');
 ?>

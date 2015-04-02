@@ -16,7 +16,7 @@ function($routeProvider, $locationProvider, SITE_INFO)
       templateUrl: SITE_INFO.partials+"views/property.html",
       controller: "propertyController"
     })
-    .when("/sida/:name",
+    .when("/sidor/:name",
     {
       templateUrl: SITE_INFO.partials+"views/page.html",
       controller: "pageController"
@@ -26,11 +26,6 @@ function($routeProvider, $locationProvider, SITE_INFO)
       templateUrl: SITE_INFO.partials+"views/contact.html",
       controller: "contactController"
     })
-    .when("/om-oss",
-    {
-      templateUrl: SITE_INFO.partials+"views/about.html",
-      controller: "aboutController"
-    })
      .when("/search", {
       templateUrl: SITE_INFO.partials+"views/propertyList.html",
       controller: "propertyListController"
@@ -39,10 +34,6 @@ function($routeProvider, $locationProvider, SITE_INFO)
     {
       redirectTo: "/"
     });
-    //.otherwise(
-    //{
-    //  redirectTo: "/"
-    //});
 
   $locationProvider.html5Mode(true);
 }])
