@@ -28,7 +28,7 @@ function ngThemes_stylesheets()
   wp_enqueue_style( 'slider-style' );
 
   // Register the style like this for a theme:
-  wp_register_style( 'base-style', THEME_HTTP_ROOT . 'css/style.css', array(), '20150225', 'all' );
+  wp_register_style( 'base-style', THEME_HTTP_ROOT . 'css/main.css', array(), '20150225', 'all' );
 
   // For either a plugin or a theme, you can then enqueue the style:
   wp_enqueue_style( 'base-style' );
