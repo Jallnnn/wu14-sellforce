@@ -16,6 +16,11 @@ function($routeProvider, $locationProvider, SITE_INFO)
       templateUrl: SITE_INFO.partials+"views/property.html",
       controller: "propertyController"
     })
+    .when("/sida/:name",
+    {
+      templateUrl: SITE_INFO.partials+"views/page.html",
+      controller: "pageController"
+    })
     .when("/vara-maklare",
     {
       templateUrl: SITE_INFO.partials+"views/contact.html",
@@ -25,7 +30,6 @@ function($routeProvider, $locationProvider, SITE_INFO)
     {
       templateUrl: SITE_INFO.partials+"views/about.html",
       controller: "aboutController"
-
     })
      .when("/search", {
       templateUrl: SITE_INFO.partials+"views/propertyList.html",
