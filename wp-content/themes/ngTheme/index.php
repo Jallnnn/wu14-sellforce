@@ -10,7 +10,7 @@
   <header ng-include="'<?php echo(THEME_HTTP_ROOT)?>partials/header.html'" ng-controller="headerController">
   </header>
  
-  <main ng-view>
+  <main class="container" ng-view>
 
   </main>
  
