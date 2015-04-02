@@ -28,9 +28,26 @@
                 <label class="checkbox-inline">
                   <input type="checkbox" ng-model="balkFilt" id="inlineCheckbox7" value="1"> Balkong
                 </label>
-            </div>  
+            </div> 
+
             <div class="form-group">
-              <label>Bostadstyp:</label>
+              <label>Län:</label>
+              <select ng-options = "item for item in Areas" class="form-control" ng-model="areaFilt">
+                <!-- <option  ng-repeat="area in Areas">{{area}}</option> -->
+                <option value="">-- Valj län --</option>
+               </select>
+              <!--  <label>Kommun:</label>
+              <select class="form-control" ng-model="kommunFilt">
+                <option  ng-repeat="kom in Kommuns">{{kom}}</option>
+               </select>
+               <label>Stad:</label>
+              <select class="form-control" ng-model="stadFilt">
+                <option  ng-repeat="enstad in Towns">{{enstad}}</option>
+               </select> -->
+            </div>
+
+            <div class="form-group">
+              <label>Bostadstyp:</label> 
               <div class="checkbox">
                 <label class="checkbox-inline">
                   <input type="checkbox" ng-model="propFilters.typeRange.apartment" id="inlineCheckbox1" value="1"> Lägenhet
@@ -66,8 +83,9 @@
         <p>Your filters will appear here.</p>
       </div> -->
 
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
       <!-- Table -->
-      <table class="table">
+      <table class="table col-xs-12 col-sm-12 col-md-9 col-lg-9">
         <tr>
           <th></th>
           <th></th> 
@@ -77,16 +95,17 @@
           </th>
           <th></th>
         </tr>
-        <tr ng-repeat="model in propertyModels | PriceRange:pricevalue | typeRange:propFilters.typeRange 
-        |balkong:balkFilt |hiss:hissFilt| orderBy:orderKey:reverse">
+        <!-- | kommun:kommunFilt | stad:stadFilt  -->
+        <tr ng-repeat="model in propertyModels | PriceRange:pricevalue | typeRange:propFilters.typeRange | lanFilter:areaFilt |balkongFilter:balkFilt |hissFilter:hissFilt| orderBy:orderKey:reverse">
           <td>{{model.post.title}}</td>
-          <td><img class="annonsimg" src={{model.media[0].source}}>
+          <td><img class="annonsimg" ng-src="{{model.media[0].source}}">
             <div class="anons" ng-bind-html="model.post.excerpt"></div>
           </td>
           <td>{{model.propertyData.pris}} SEK</td>
           <td><button class="btn btn-sm btn-success" ng-click="goTo('estate/'+model.post.slug)">All info</button></td>
         </tr>
       </table>
+      </div>
     </div>
 
   </div>

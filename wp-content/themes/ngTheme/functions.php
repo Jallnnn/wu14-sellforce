@@ -141,6 +141,30 @@ function ngTheme_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'ngTheme_scripts' );
 
+function meta_values_js() {
+  global $wpdb;
+  $town_values = $wpdb->get_col("SELECT distinct meta_value
+  FROM $wpdb->postmeta WHERE meta_key = 'stad'" );
+ 
+  $kommun_values = $wpdb->get_col("SELECT distinct meta_value
+  FROM $wpdb->postmeta WHERE meta_key = 'kommun'" );
+
+  $lan_values = $wpdb->get_col("SELECT distinct meta_value
+  FROM $wpdb->postmeta WHERE meta_key = 'lan'" );
+ 
+  wp_localize_script(
+    'appjs',
+    'metaValues', //"metaValues" will be a global JS variable
+    array(
+      'stad' => $town_values,
+      'kommun' => $kommun_values,
+      'lan' => $lan_values,
+    )
+  );
+}
+ 
+add_action( 'wp_enqueue_scripts', 'meta_values_js' );
+
 
 
 /**

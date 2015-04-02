@@ -1,7 +1,7 @@
-app.controller("propertyListController", ["$scope", "Property", "$routeParams", "$location",
-  function ($scope, Property, $routeParams, $location) {
+app.controller("propertyListController", ["$scope", "Property", "$routeParams", "$location", "META_VALUES",
+  function ($scope, Property, $routeParams, $location, META_VALUES) {
   console.log("propertyListController is alive! params: ", $routeParams);
-
+// console.log("meta ", META_VALUES);
   /*
     Just some notes for myself:
 
@@ -21,6 +21,10 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
     tomt : true,
     fritidshus : true
   };
+
+$scope.Areas=META_VALUES.lan;
+$scope.areaFilt="";
+console.log("Län :",$scope.Areas);
 
   $scope.pricevalue = "10;300";
   $scope.options = {
@@ -47,6 +51,7 @@ app.controller("propertyListController", ["$scope", "Property", "$routeParams", 
     fritidshus : true
   };
    $scope.balkFilt="";
+   $scope.areaFilt="";
   };
 
   $scope.resetPropTypeRange = function() {

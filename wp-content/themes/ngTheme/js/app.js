@@ -43,4 +43,6 @@ function($routeProvider, $locationProvider, SITE_INFO)
   $locationProvider.html5Mode(true);
 }])
 .constant('SITE_INFO', myLocalized)
-.constant('API_ROUTE', "wp-json");
+.constant('API_ROUTE', "wp-json")
+.constant('META_VALUES', metaValues); //new constant "META_VALUES"
+

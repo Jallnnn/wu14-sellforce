@@ -1,4 +1,4 @@
-app.filter('balkong', function () {
+app.filter('balkongFilter', function () {
   return function (properties, hasBalcony) {
     if (!properties) { return; }
     // console.log("properties: ", properties);
