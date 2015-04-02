@@ -5,6 +5,12 @@ function(Menus, $scope, $location, SITE_INFO)
 	console.log("headerController is alive!");
 	console.log("SITE_INFO: ", SITE_INFO);
 
+  $scope.navIsCollapsed = true;
+
+  $scope.collapseNav = function() {
+    $scope.navIsCollapsed = !$scope.navIsCollapsed;
+  };
+
   $scope.partialsDir = SITE_INFO.partials;
 
 	// console.log("Menus.get(): ", Menus.get(3));
@@ -13,7 +19,7 @@ function(Menus, $scope, $location, SITE_INFO)
 	$scope.$on("gotMenuLinks", function(event, data)
 	{
 		$scope.menuLinks = data;
-		console.log("menuLinks.items: ", $scope.menuLinks.items);
+		console.log("menuLinks.items: ", $scope.menuLinks);
 	});
 
   $scope.searchText = "";
