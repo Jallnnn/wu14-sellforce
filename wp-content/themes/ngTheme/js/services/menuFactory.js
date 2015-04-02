@@ -1,63 +1,77 @@
-app.factory("Menus", ["WPRest", function(WPRest)
+app.factory("Menus", ["WPRest", "SITE_INFO",
+function(WPRest, SITE_INFO)
+{
+
+	function createMenuTree(menuData)
 	{
-		function createMenuTree(menuData)
+		var menuTree = [];
+		var hash = {};
+		var menuItems = menuData.items;
+
+		menuItems.sort(function(x, y) {
+			return x.order > y.order;
+		});
+
+		for(var i = 0; i < menuItems.length; i++)
 		{
-			var menuTree = [];
-			var hash = {};
-			var menuItems = menuData.items;
-
-			for(var i = 0; i < menuItems.length; i++)
-			{
-				menuItems[i].children = [];
-
-				hash["_" + menuItems[i].ID] = menuItems[i];
-
-				if(menuItems[i].parent === 0)
-				{
-					menuTree.push(menuItems[i]);
-				}
+			menuItems[i].children = [];
+			menuItems[i].url = menuItems[i].url.replace(SITE_INFO.http_root, "/");
+			if (
+				menuItems[i].url.indexOf("vara-maklare") < 0 &&
+				menuItems[i].url.indexOf("om-oss") < 0 &&
+				menuItems[i].url != "/"
+				) {
+				menuItems[i].url = "/sida" + menuItems[i].url;
 			}
 
-			for(var i in hash)
+			hash["_" + menuItems[i].ID] = menuItems[i];
+
+			if(menuItems[i].parent === 0)
 			{
-				var menuLink = hash[i];
-				if(!menuLink.parent)
-				{
-					continue;
-				}
-				hash["_" + menuLink.parent].children.push(menuLink);
+				menuTree.push(menuItems[i]);
 			}
-			return menuTree;
 		}
 
-		var menuServant =
+		for(var i in hash)
 		{
-			get : function(menuID)
+			var menuLink = hash[i];
+			if(!menuLink.parent)
 			{
-				var callURL;
-				var broadcastInstructions;
-				if (menuID)
-				{
-					callURL = "/menus/" + menuID;
-
-					broadcastInstructions =
-					{
-						broadcastName : "gotMenuLinks",
-						callback : function(data)
-						{
-							return createMenuTree(data);
-						}
-					};
-				}
-				else
-				{
-					callURL = "/menus/";
-					broadcastInstructions = "gotMenus";
-				}
-
-				WPRest.restCall(callURL, "GET", {}, broadcastInstructions);
+				continue;
 			}
-		};
+			hash["_" + menuLink.parent].children.push(menuLink);
+		}
+		return menuTree;
+	}
 
-		return menuServant;
-	}]);
+	var menuServant =
+	{
+		get : function(menuID)
+		{
+			var callURL;
+			var broadcastInstructions;
+			if (menuID)
+			{
+				callURL = "/menus/" + menuID;
+
+				broadcastInstructions =
+				{
+					broadcastName : "gotMenuLinks",
+					callback : function(data)
+					{
+						return createMenuTree(data);
+					}
+				};
+			}
+			else
+			{
+				callURL = "/menus/";
+				broadcastInstructions = "gotMenus";
+			}
+
+			WPRest.restCall(callURL, "GET", {}, broadcastInstructions);
+		}
+	};
+
+	return menuServant;
+}]);
