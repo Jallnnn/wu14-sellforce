@@ -1,5 +1,5 @@
 <li ng-repeat="item in menuLinks" ng-class="{true: 'dropdown', false: ''}[item.children.length > 0]">
-	<a ng-href="{{item.url}}">{{item.title}}</a>
+	<a href="" ng-click="goTo(item.url)">{{item.title}}</a>
 
 	<ul class="dropdown-menu" ng-if="item.children.length > 0" ng-include="partialsDir + 'views/menuRecursor.html'" ng-init="menuLinks = item.children">
 	</ul>
