@@ -1,16 +1,6 @@
 <section class="container">
   <div class="row" ng-init="allImgs = true;">
-    <div ng-controller="imagesController">
-      <carousel interval="myInterval">
-        <slide ng-repeat="image in imgData" active="image.active">
-          <img ng-src="{{image.source}}">
-          <div class="carousel-caption">
-            <h4>Slide {{$index}}</h4>
-            <p>{{image.title}}</p>
-          </div>
-        </slide>
-      </carousel>
-    </div>
+    
     <div class="col-md-12">
       <h1>Sellforce. <small>Modern mäklarbyrå nära dig.</small></h1>
     </div>
@@ -43,4 +33,15 @@
       </nav>
     </div>
   </div>
+  <div id="slides_control" ng-controller="imagesController">
+      <carousel interval="myInterval">
+        <slide ng-repeat="image in imgData" active="image.active">
+          <img ng-src="{{image.source}}">
+          <div class="carousel-caption">
+            <!-- <h4>Slide {{$index}}</h4> -->
+            <!-- <p>{{image.title}}</p> -->
+          </div>
+        </slide>
+      </carousel>
+    </div>
 </section>

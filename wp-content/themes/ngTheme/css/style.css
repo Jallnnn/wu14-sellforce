@@ -1,4 +1,29 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+div.ng-scope {
+  border: solid 1px #e7e7e7;
+}
+
+.form-group {
+  background-color:  #e7e7e7;
+}
+
+
+.annonsimg {
+  width: 20%;
+  /*height: 100%;*/
+  margin: 5px 10px;
+  vertical-align: top;
+}
+.anons {
+  display: inline-block;
+  width: 70%;
+  margin: 5px 10px;
+}
+
+.glyphicon {
+  cursor: pointer;
+}
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -6181,8 +6206,8 @@ button.close {
   height: 10px;
   margin: 1px;
   text-indent: -999px;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
+  /*border: 1px solid #ffffff;*/
+  /*border-radius: 10px;*/
   cursor: pointer;
   background-color: #000 \9;
   background-color: rgba(0, 0, 0, 0);
@@ -6575,4 +6600,14 @@ footer {
     left: 100%;
     margin-top: -6px;
     margin-left: -1px;
+}
+
+
+#slides_control {
+  position: relative;
+  height: 300px;
+  overflow:hidden;
+  /*left:50%;*/
+  top:-10px;
+ /*margin-left:-200px;*/
 }
