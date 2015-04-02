@@ -98,7 +98,7 @@
         <!-- | kommun:kommunFilt | stad:stadFilt  -->
         <tr ng-repeat="model in propertyModels | PriceRange:pricevalue | typeRange:propFilters.typeRange | lanFilter:areaFilt |balkongFilter:balkFilt |hissFilter:hissFilt| orderBy:orderKey:reverse">
           <td>{{model.post.title}}</td>
-          <td><img class="annonsimg" ng-src="{{model.media[0].source}}">
+          <td><img class="annonsimg img-responsive" ng-src="{{model.media[0].source}}">
             <div class="anons" ng-bind-html="model.post.excerpt"></div>
           </td>
           <td>{{model.propertyData.pris}} SEK</td>
