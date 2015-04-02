@@ -1,31 +1,37 @@
 <article class="col-xs-10 col-sm-10  col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 row">
   
 
-  <h2>{{property.post.title}}</h2>
+  
 
-  <img class="img-responsive" ng-src="{{property.media[0].source}}">
+  <article class="row col-xs-12 col-sm-12  col-md-12 col-lg-12 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+    <h2>{{property.post.title}}</h2>
 
-  <article class="col-xs-12 col-sm-12  col-md-3 col-lg-3  col-md-offset-1 col-lg-offset-1 row">
-    <div>
-      <h3>Info</h3>
-      <ul>
-        <li>Stad: {{property.propertyData.stad}}</li>
-        <li>Pris: {{property.propertyData.pris}}:-</li>
-        <li>Avgift: {{property.propertyData.avgift}}:-</li>
-        <li>Typ av bostad: {{property.propertyData.bostadstyp}}</li>
-        <li>Rum: {{property.propertyData.rum}}</li>
-        <li>Byggår: {{property.propertyData.byggar}}</li>
-        <li>Boarea: {{property.propertyData.boarea}}</li>
-        <li>Tomtarea: {{property.propertyData.tomtarea}}</li>
-        <li>Län: {{property.propertyData.lan}}</li>
-        <li>Kommun: {{property.propertyData.kommun}}</li>
-        <li>Våning: {{property.propertyData.vaning}}</li>
-        <li>Hiss: {{property.propertyData.hiss/1 ? "Ja" : "Nej"}}</li>
-        <li>Balkong: {{property.propertyData.balkong/1 ? "Ja" : "Nej"}}</li>
+    <section class="col-xs-12 col-sm-12  col-md-6 col-lg-6 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+      <img class="main-image img-responsive" ng-src="{{property.media[0].source}}">
+    </section>
+
+
+    
+    <section class="property-quick-info col-xs-12 col-sm-12  col-md-6 col-lg-6 col-sx-offset-0 col-sm-offset-0 col-md-offset-6 col-lg-offset-6">
+      
+      <ul >
+        <li><strong>Stad:</strong> {{property.propertyData.stad}}</li>
+        <li><strong>Pris:</strong> {{property.propertyData.pris}}:-</li>
+        <li><strong>Avgift:</strong> {{property.propertyData.avgift}}:-</li>
+        <li><strong>Typ av bostad:</strong> {{property.propertyData.bostadstyp}}</li>
+        <li><strong>Rum:</strong> {{property.propertyData.rum}}</li>
+        <li><strong>Byggår:</strong> {{property.propertyData.byggar}}</li>
+        <li><strong>Boarea:</strong> {{property.propertyData.boarea}}</li>
+        <li><strong>Tomtarea:</strong> {{property.propertyData.tomtarea}}</li>
+        <li><strong>Län:</strong> {{property.propertyData.lan}}</li>
+        <li><strong>Kommun:</strong> {{property.propertyData.kommun}}</li>
+        <li><strong>Våning:</strong> {{property.propertyData.vaning}}</li>
+        <li><strong>Hiss:</strong> {{property.propertyData.hiss/1 ? "Ja" : "Nej"}}</li>
+        <li><strong>Balkong:</strong> {{property.propertyData.balkong/1 ? "Ja" : "Nej"}}</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="col-md-12" ng-bind-html="property.post.content">
+    <div class="row col-xs-12 col-sm-12  col-md-12 col-lg-12 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0" ng-bind-html="property.post.content">
      
     </div>
   </article>

@@ -12,15 +12,10 @@ app.controller("propertyController", ["$scope", "Property" ,"$routeParams", "$sc
   $scope.$on("foundProperty", function(event, data) {
     console.log("propertyController on foundProperty: ", data[0]);
     $scope.property = data;
-    aGlobalVar = $scope.property;
+    // aGlobalVar = $scope.property;
     if (data.length === 0) { return; }
 
     $scope.property = data[0];
     console.log("our stuff", $scope.property);
-    
-
-
-
   });
-
 }]);
