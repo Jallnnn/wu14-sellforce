@@ -17,8 +17,11 @@
   overflow:hidden;
   /*left:50%;*/
   top:-10px;
- /*margin-left:-200px;*/
+ margin:auto;
+}
 
-.quick-info {
-
+.Sliderimg {
+width: 95%;
+height: auto;
+margin: -20% auto 2px;
 }
