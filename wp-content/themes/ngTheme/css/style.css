@@ -6590,24 +6590,3 @@ main:after {
 footer {
   background: orange;
 }
-
-.dropdown:hover > .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu > .dropdown > .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -6px;
-    margin-left: -1px;
-}
-
-
-#slides_control {
-  position: relative;
-  height: 300px;
-  overflow:hidden;
-  /*left:50%;*/
-  top:-10px;
- /*margin-left:-200px;*/
-}
