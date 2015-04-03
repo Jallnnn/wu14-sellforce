@@ -24,17 +24,6 @@ function(Menus, $scope, $location, SITE_INFO)
 
   $scope.searchText = "";
 
-  $scope.searchFor = function(searchText) {
-    var locationUrl = "/search";
-    if (searchText) {
-      locationUrl += "?s=" + searchText;
-    }
-
-    console.log("Searching: ", locationUrl);
-    $scope.goTo(locationUrl);
-  };
-
-
   $scope.goTo = function(url, hardReload) {
     //any relative path destined for hardReload 
     //gets http_root instead of initial "/"

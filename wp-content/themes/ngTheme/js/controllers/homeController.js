@@ -1,21 +1,99 @@
 //"ngTheme" home controller.
 //dependent on $scope && WPService being injected to run
-app.controller("homeController", ["$scope", "$location", "Property",
-function($scope, $location, Property)
+app.controller("homeController", ["$scope", "$location", "Property", "$routeParams", "META_VALUES",
+function($scope, $location, Property, $routeParams, META_VALUES)
 {
   console.log("homeController alive!");
+  
+  // console.log("meta ", META_VALUES);
+  /*
+    Just some notes for myself:
 
-  Property.find();
-
-  $scope.$on("foundProperty", function(event, data)
-  {
-    console.log("propertyController on foundProperty: ", data);
-    $scope.propertyData = data;
-  });
-
-  $scope.showPropertyDetail = function()
-  {
-      $location.url("fastigheter/" + this.property.post.slug);
+    $scope.propFilters = {
+      priceRange : [1000, 1000000], //always length === 2
+      
+      }
+    }
+  */
+  $scope.propFilters = {};
+  $scope.propFilters.priceRange = [];
+  $scope.propFilters.typeRange = {
+    apartment : true,
+    villa : true,
+    yard : true,
+    other :true,
+    tomt : true,
+    fritidshus : true
   };
 
+$scope.Areas=META_VALUES.lan;
+$scope.areaFilt="";
+console.log("Län :",$scope.Areas);
+
+  $scope.pricevalue = "10;300";
+  $scope.options = {
+    from: 10,
+    to: 1000,
+    step: 10,
+    dimension: "tus SEK",
+    scale: [10, '|', 250, '|', 500, '|' , 750, '|', 1000]
+  };
+
+
+  $scope.filterReset = function() {
+    $scope.propFilters = {
+      priceRange : [] //always length === 2
+     
+    };
+    $scope.pricevalue = "10;300";
+    $scope.propFilters.typeRange = {
+    apartment : true,
+    villa : true,
+    yard : true,
+    other :true,
+    tomt : true,
+    fritidshus : true
+  };
+   $scope.balkFilt="";
+   $scope.areaFilt="";
+  };
+
+  $scope.resetPropTypeRange = function() {
+    $scope.propFilters.typeRange = {
+      apartment : true,
+      villa : true,
+      yard : true,
+      other :true,
+      tomt : true,
+      fritidshus : true
+    };
+  };
+
+
+  //Property.find() accepts an object with key->value pairs that
+  //map to the search filters we need in our GET request
+  //var pageNo = 1;
+  Property.find($routeParams);
+  $scope.orderKey = "post.title";
+  $scope.reverse = false;
+  //the interval for all carousels
+  // $scope.carouselInterval = 5000;
+
+  $scope.$on("foundProperty", function(event, data) {
+    console.log("propertyController on foundProperty: ", data);
+    $scope.propertyModels = data;
+
+    //pageNo++;
+    //Property.find($routeParams, pageNo);
+  });
+
+  $scope.changeOrderBy = function(changeTo, reverse) {
+    $scope.reverse = reverse !== undefined ? reverse : $scope.reverse;
+    $scope.orderKey = changeTo;
+  };
+
+  //a simple $scope method for changing urls using ng-click in views
+  $scope.goTo = function(url) {
+    $location.url(url);
+  };
 }]);
