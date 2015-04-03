@@ -17,7 +17,7 @@
   overflow:hidden;
   /*left:50%;*/
   top:-10px;
- margin:auto;
+  margin:auto;
 }
 
 .Sliderimg {
@@ -32,7 +32,8 @@ margin: -20% auto 2px;
 	background-color: #EEEEEE;
 	border: 1px solid #000000;
 	border-radius: 5px;
-	margin: 15px 0 15px;
+	/*margin: 15px 0 15px;*/
+	margin: 0;
 }
 
 .property-quick-info h3 {
@@ -59,3 +60,31 @@ margin: -20% auto 2px;
 	text-align: center;
 }
 
+
+
+/* Tiny devices (tablets, under 768px) */
+@media (max-width: 767px) {
+	.property-quick-info {
+		margin: 15px 0 15px;
+	}
+	.property-quick-info ul li {
+		display: inline-block;
+	}
+	
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 991px) {
+	.property-quick-info {
+		margin: 15px 0 15px;
+	}
+
+	.property-quick-info ul li {
+		display: inline-block;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 1199px) {
+
+}
