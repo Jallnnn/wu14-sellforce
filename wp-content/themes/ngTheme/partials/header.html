@@ -21,13 +21,6 @@
           <div class="navbar-collapse" ng-class="{true: 'collapse', false: ''}[navIsCollapsed]">
             <ul class="nav navbar-nav" ng-include="partialsDir + 'views/menuRecursor.html'">
             </ul>
-
-            <form class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input type="text" ng-model="searchText" class="form-control" placeholder="Search">
-              </div>
-              <button ng-click="searchFor(searchText)" class="btn btn-default">Submit</button>
-            </form>
           </div>
         </div>
       </nav>
