@@ -1,8 +1,8 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
-div.ng-scope {
+/*div.ng-scope {
   border: solid 1px #e7e7e7;
-}
+}*/
 
 .form-group {
   background-color:  #e7e7e7;
@@ -6588,5 +6588,9 @@ main:after {
   height: 142px;
 }
 footer {
-  background: orange;
+  background: #FFC266;
+}
+
+.headerlogo {
+  background: #FFC266;
 }

@@ -7,7 +7,19 @@
     <h2>{{property.post.title}}</h2>
 
     <section class="col-xs-12 col-sm-12  col-md-6 col-lg-6 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-      <img class="main-image img-responsive" ng-src="{{property.media[0].source}}">
+      <!-- <img class="main-image img-responsive" ng-src="{{property.media[0].source}}"> -->
+       <div> 
+        <!-- ng-controller="imagesController"> -->
+      <carousel interval="myInterval">
+        <slide ng-repeat="image in property.media" active="image.active">
+          <img class="SliderimgProp" ng-src="{{image.source}}">
+          <div class="carousel-caption">
+            <!-- <h4>Slide {{$index}}</h4> -->
+            <!-- <p>{{image.title}}</p> -->
+          </div>
+        </slide>
+      </carousel>
+    </div>
     </section>
 
 
