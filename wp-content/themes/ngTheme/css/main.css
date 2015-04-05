@@ -27,6 +27,8 @@ margin: -20% auto 2px;
  /*margin-left:-200px;*/
 }
 
+
+
 .property-quick-info {
 	padding: 5px;
 	background-color: #EEEEEE;
@@ -113,4 +115,10 @@ margin: -20% auto 2px;
 
 .textfooter {
   font-size: 70%;
+}
+
+
+.SliderimgProp {
+  height: 350px;
+  margin: auto;
 }
