@@ -30,13 +30,13 @@ $scope.Areas=META_VALUES.lan;
 $scope.areaFilt="";
 console.log("Län :",$scope.Areas);
 
-  $scope.pricevalue = "10;300";
+  $scope.pricevalue = "0;1000";
   $scope.options = {
-    from: 10,
+    from: 0,
     to: 1000,
     step: 10,
-    dimension: "tus SEK",
-    scale: [10, '|', 250, '|', 500, '|' , 750, '|', 1000]
+    dimension: "K SEK",
+    scale: [0, '|', 250, '|', 500, '|' , 750, '|', 1000]
   };
 
 
@@ -45,7 +45,7 @@ console.log("Län :",$scope.Areas);
       priceRange : [] //always length === 2
      
     };
-    $scope.pricevalue = "10;300";
+    $scope.pricevalue = "0;1000";
     $scope.propFilters.typeRange = {
     apartment : true,
     villa : true,
