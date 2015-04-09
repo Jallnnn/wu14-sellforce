@@ -2,6 +2,7 @@
 <html>
 <head>
   <!-- base href must correspond to the base path of your wordpress site -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <base href="/wu14-sellforce/">
   <title>ngTheme</title>
   <?php wp_head(); ?>
