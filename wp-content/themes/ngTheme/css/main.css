@@ -66,34 +66,6 @@ margin: -20% auto 2px;
 	background-color: transparent;
 }
 
-
-/* Tiny devices (tablets, under 768px) */
-@media (max-width: 767px) {
-	.property-quick-info {
-		margin: 15px 0 15px;
-	}
-	.property-quick-info ul li {
-		display: inline-block;
-	}
-	
-}
-
-/* Small devices (tablets, 768px and up) */
-@media (max-width: 991px) {
-	.property-quick-info {
-		margin: 15px 0 15px;
-	}
-
-	.property-quick-info ul li {
-		display: inline-block;
-	}
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (max-width: 1199px) {
-
-}
-
 .slogan {
   min-height: 100%;
   text-align: right;
@@ -121,4 +93,67 @@ margin: -20% auto 2px;
 .SliderimgProp {
   height: 350px;
   margin: auto;
+}
+
+.feedback-link{
+	z-index: 100;
+	position: fixed;
+	opacity: 0.7;
+	top: 50%;
+	right: -5px;
+	width: auto;
+	height: auto;
+	
+	display: inline-block;
+	margin: 0;
+	padding: 0 5px;
+	border-radius: 5px 5px 0 0;
+	font-weight: 700;
+	color: #FFFFFF;
+	background-color: #0cadc0;/*0cadc0*/
+	/*white-space:nowrap;*/
+
+	-webkit-transition: right 0.3s, opacity 0.3s, background-color 0.3s; /* For Safari 3.1 to 6.0 */
+    transition: right 0.3s, opacity 0.3s, background-color 0.3s;
+
+	-ms-transform: rotate(270deg) translateX(-100%); /* IE 9 */
+    -webkit-transform: rotate(270deg) translateX(100%);
+    -webkit-transform-origin: 100% 100%;
+    transform: rotate(270deg) translateX(100%);
+    transform-origin: 100% 100%;
+}
+.feedback-link:hover{
+	opacity: 1;
+	background-color: #0fd1e8;
+	font-style: none;
+	color: #FFFFFF;
+	text-decoration: none;
+	right: 0;
+}
+
+/* Tiny devices (tablets, under 768px) */
+@media (max-width: 767px) {
+	.property-quick-info {
+		margin: 15px 0 15px;
+	}
+	.property-quick-info ul li {
+		display: inline-block;
+	}
+	
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 991px) {
+	.property-quick-info {
+		margin: 15px 0 15px;
+	}
+
+	.property-quick-info ul li {
+		display: inline-block;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 1199px) {
+
 }
