@@ -19,7 +19,6 @@
 /* Sticky footer */
 html,
 body {
-	margin-top: -32px; /*F.U. Wordpress!*/
   height: 100%;
 }
 main {
