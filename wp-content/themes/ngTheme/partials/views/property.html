@@ -1,15 +1,10 @@
-<article class="col-xs-10 col-sm-10  col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 row">
-  
+<article class="col-xs-12 col-sm-12  col-md-12 col-lg-12 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+  <h2>{{property.post.title}}</h2>
 
-  
-
-  <article class="row col-xs-12 col-sm-12  col-md-12 col-lg-12 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-    <h2>{{property.post.title}}</h2>
-
-    <section class="col-xs-12 col-sm-12  col-md-6 col-lg-6 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-      <!-- <img class="main-image img-responsive" ng-src="{{property.media[0].source}}"> -->
-       <div> 
-        <!-- ng-controller="imagesController"> -->
+  <section class="property-carousel col-xs-12 col-sm-12 col-md-6 col-lg-6 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+    <!-- <img class="main-image img-responsive" ng-src="{{property.media[0].source}}"> -->
+     <div> 
+      <!-- ng-controller="imagesController"> -->
       <carousel interval="myInterval">
         <slide ng-repeat="image in property.media" active="image.active">
           <img class="SliderimgProp" ng-src="{{image.source}}">
@@ -20,88 +15,83 @@
         </slide>
       </carousel>
     </div>
-    </section>
+  </section>
 
 
-    
-    <section class="property-quick-info col-xs-12 col-sm-12  col-md-6 col-lg-6 col-sx-offset-0 col-sm-offset-0 col-md-offset-6 col-lg-offset-6">
-      <!-- property.propertyData.stad -->
-      <ul>
-        <li>
-          <span>
-            <strong>Typ av bostad: </strong> {{property.propertyData.bostadstyp}}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Pris: </strong> {{property.propertyData.pris}}:-
-          </span>
-        </li>
-        <li ng-if="property.propertyData.avgift">
-          <span>
-            <strong>Avgift: </strong> {{property.propertyData.avgift}}:-
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Stad: </strong> {{property.propertyData.stad}}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Län: </strong> {{property.propertyData.lan}}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Kommun: </strong> {{property.propertyData.kommun}}
-          </span>
-        </li>
-        <li ng-if="property.propertyData.rum">
-          <span>
-            <strong>Rum: </strong> {{property.propertyData.rum}}
-          </span>
-        </li>
-        
-        <li ng-if="property.propertyData.byggar">
-          <span>
-            <strong>Byggår: </strong> {{property.propertyData.byggar}}
-          </span>
-        </li>
-        <li ng-if="property.propertyData.boarea">
-          <span>
-            <strong>Boarea: </strong> {{property.propertyData.boarea}} m<sup>2</sup>
-          </span>
-        </li>
-        <li ng-if="property.propertyData.tomtarea">
-          <span>
-            <strong>Tomtarea: </strong> {{property.propertyData.tomtarea}} m<sup>2</sup>
-          </span>
-        </li>
-        <li ng-if="property.propertyData.vaning">
-          <span>
-            <strong>Våning: </strong> {{property.propertyData.vaning}}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Hiss: </strong> {{property.propertyData.hiss/1 ? "Ja" : "Nej"}}
-          </span>
-        </li>
-        <li>
-          <span>
-            <strong>Balkong: </strong> {{property.propertyData.balkong/1 ? "Ja" : "Nej"}}
-          </span>
-        </li>
-      </ul>
-    </section>
+  
+  <section class="property-quick-info col-xs-12 col-sm-12  col-md-6 col-lg-6 col-sx-offset-0 col-sm-offset-0 col-md-offset-6 col-lg-offset-6">
+    <!-- property.propertyData.stad -->
+    <ul>
+      <li>
+        <span>
+          <strong>Typ av bostad: </strong> {{property.propertyData.bostadstyp}}
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Pris: </strong> {{property.propertyData.pris}}:-
+        </span>
+      </li>
+      <li ng-if="property.propertyData.avgift">
+        <span>
+          <strong>Avgift: </strong> {{property.propertyData.avgift}}:-
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Stad: </strong> {{property.propertyData.stad}}
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Län: </strong> {{property.propertyData.lan}}
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Kommun: </strong> {{property.propertyData.kommun}}
+        </span>
+      </li>
+      <li ng-if="property.propertyData.rum">
+        <span>
+          <strong>Rum: </strong> {{property.propertyData.rum}}
+        </span>
+      </li>
+      
+      <li ng-if="property.propertyData.byggar">
+        <span>
+          <strong>Byggår: </strong> {{property.propertyData.byggar}}
+        </span>
+      </li>
+      <li ng-if="property.propertyData.boarea">
+        <span>
+          <strong>Boarea: </strong> {{property.propertyData.boarea}} m<sup>2</sup>
+        </span>
+      </li>
+      <li ng-if="property.propertyData.tomtarea">
+        <span>
+          <strong>Tomtarea: </strong> {{property.propertyData.tomtarea}} m<sup>2</sup>
+        </span>
+      </li>
+      <li ng-if="property.propertyData.vaning">
+        <span>
+          <strong>Våning: </strong> {{property.propertyData.vaning}}
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Hiss: </strong> {{property.propertyData.hiss/1 ? "Ja" : "Nej"}}
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Balkong: </strong> {{property.propertyData.balkong/1 ? "Ja" : "Nej"}}
+        </span>
+      </li>
+    </ul>
+  </section>
 
-    <div class="row col-xs-12 col-sm-12  col-md-12 col-lg-12 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0" ng-bind-html="property.post.content">
-     
-    </div>
-  </article>
-
+  <div class="property-text col-xs-12 col-sm-12  col-md-12 col-lg-12 col-sx-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0" ng-bind-html="property.post.content">
+   
+  </div>
 </article>
-
-
-

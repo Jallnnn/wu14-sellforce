@@ -19,6 +19,7 @@
 /* Sticky footer */
 html,
 body {
+	margin-top: -32px; /*F.U. Wordpress!*/
   height: 100%;
 }
 main {
@@ -36,17 +37,17 @@ main {
   
 }*/
 footer {
-  background: orange;
+  background: #FFC266;
   height: auto;
   margin: 0;
 }
 
-footer:after {
-  background/*: orange;
+/*footer:after {
+  background: orange;
   height: auto;
-  margin: 0;*/
+  margin: 0;
   height: auto;
-}
+}*/
 
 .dropdown:hover > .dropdown-menu {
     display: block;
@@ -137,6 +138,9 @@ margin: -20% auto 2px;
   font-size: 70%;
 }
 
+.property-carousel{
+	padding-left: 0;
+}
 
 .SliderimgProp {
   height: 350px;
@@ -244,6 +248,15 @@ margin: -20% auto 2px;
 		display: inline-block;
 		margin: 0;
 		padding: 0 5px 0 0;
+	}
+
+	.property-carousel{
+		padding: 0;
+
+	}
+
+	.property-text{
+		padding: 0;
 	}
 }
 
