@@ -7,20 +7,6 @@
 .form-group {
   background-color:  #e7e7e7;
 }
-
-
-.annonsimg {
-  width: 20%;
-  /*height: 100%;*/
-  margin: 5px 10px;
-  vertical-align: top;
-}
-.anons {
-  display: inline-block;
-  width: 70%;
-  margin: 5px 10px;
-}
-
 .glyphicon {
   cursor: pointer;
 }
@@ -6583,10 +6569,10 @@ main:after {
   content: "";
   display: block;
 }
-footer,
+/*footer,
 main:after {
   height: 142px;
-}
+}*/
 footer {
   background: #FFC266;
 }

@@ -1,5 +1,53 @@
 @import url("style.css");
 
+/*
+  Theme Name: ngTheme Theme
+  Description: This is a theme built for Angular
+  Text Domain: ngtheme
+  Version: 1.0
+
+  Inspired by: https://1fix.io/blog/2014/11/05/angularjs-json-api-wp-theme/
+*/
+/* ngBootrap css fix */
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+
+/* Sticky footer */
+html,
+body {
+  height: 100%;
+}
+main {
+	display: block;
+	/*min-height: 100%;*/
+	/* equal to footer height */
+	/*margin-bottom: 0px;*/
+	margin: 0;
+}
+/*main:after {
+  content: "";
+  display: block;
+}*/
+/*footer {
+  
+}*/
+footer {
+  background: orange;
+  height: auto;
+  margin: 0;
+}
+
+footer:after {
+  background/*: orange;
+  height: auto;
+  margin: 0;*/
+  height: auto;
+}
+
 .dropdown:hover > .dropdown-menu {
     display: block;
 }
@@ -95,6 +143,48 @@ margin: -20% auto 2px;
   margin: auto;
 }
 
+.ad-img {
+  /*width: 20%;*/
+  /*height: 100%;*/
+  /*margin: 5px 10px;*/
+  /*vertical-align: top;*/
+  /*height: auto;*/
+}
+.anons {
+  /*display: inline-block;
+  width: 70%;
+  margin: 5px 10px;*/
+
+}
+
+.ad-text{
+	padding: 15px;
+}
+
+.ad-area{
+	/*max-height: 300px;*/
+	/*padding: 15px;*/
+}
+
+.ad-quick-info{
+
+}
+
+.ad-quick-info ul{
+	margin: 0;
+	padding: 0;
+}
+
+.ad-quick-info ul li{
+	display: block;
+	margin: 0;
+	padding: 0 5px 0 0;
+}
+
+.ad-button-area{
+	padding: 0 15px;
+}
+
 .feedback-link{
 	z-index: 100;
 	position: fixed;
@@ -133,13 +223,7 @@ margin: -20% auto 2px;
 
 /* Tiny devices (tablets, under 768px) */
 @media (max-width: 767px) {
-	.property-quick-info {
-		margin: 15px 0 15px;
-	}
-	.property-quick-info ul li {
-		display: inline-block;
-	}
-	
+
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -150,6 +234,16 @@ margin: -20% auto 2px;
 
 	.property-quick-info ul li {
 		display: inline-block;
+	}
+
+	.ad-quick-info ul{
+		padding: 15px 0 0;
+	}
+
+	.ad-quick-info ul li{
+		display: inline-block;
+		margin: 0;
+		padding: 0 5px 0 0;
 	}
 }
 
