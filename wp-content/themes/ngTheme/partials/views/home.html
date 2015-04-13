@@ -79,40 +79,96 @@
       </div>
     </div>
   </div>
-    <!-- Default panel contents -->
-   <!--  <div class="panel-heading">Results:</div>
-    <div class="panel-body">
-      <p>Your filters will appear here.</p>
-    </div> -->
 
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-      <div class="panel panel-default">
+      <div class="ad-area panel panel-default" ng-repeat="model in propertyModels |filter:searchText | PriceRange:pricevalue | typeRange:propFilters.typeRange | lanFilter:areaFilt |balkongFilter:balkFilt |hissFilter:hissFilt| orderBy:orderKey:reverse">
 
-      
-        <div class="panel-heading">Funna fastigheter</div>
+        <div class="panel-heading">{{model.post.title}}</div>
+
         <div class="panel-body">
+          <div class="row">
 
-        <!-- Table -->
-          <table class="table col-xs-12 col-sm-12 col-md-9 col-lg-9">
-            <tr>
-              <th>Address</th>
-              <th>Beskrivning</th> 
-              <th>
-                <span class="glyphicon  glyphicon-arrow-up"  ng-click="changeOrderBy('propertyData.pris', true)"></span>
-                <span class="glyphicon  glyphicon-arrow-down" ng-click="changeOrderBy('propertyData.pris', false)"></span>
-              </th>
-              <th></th>
-            </tr>
-            <!-- | kommun:kommunFilt | stad:stadFilt  -->
-            <tr ng-repeat="model in propertyModels |filter:searchText | PriceRange:pricevalue | typeRange:propFilters.typeRange | lanFilter:areaFilt |balkongFilter:balkFilt |hissFilter:hissFilt| orderBy:orderKey:reverse">
-              <td>{{model.post.title}}</td>
-              <td><img class="annonsimg img-responsive" ng-src="{{model.media[0].source}}">
-                <div class="anons" ng-bind-html="model.post.excerpt"></div>
-              </td>
-              <td>{{model.propertyData.pris}} SEK</td>
-              <td><button class="btn btn-sm btn-success" ng-click="goTo('fastigheter/'+model.post.slug)">Mer info</button></td>
-            </tr>
-          </table>
+            <img class="ad-img img-responsive col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-src="{{model.media[0].source}}">
+
+            <div class="ad-quick-info col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <ul>
+                <li>
+                  <span>
+                    <strong>Typ av bostad: </strong> {{model.propertyData.bostadstyp}}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Pris: </strong> {{model.propertyData.pris}}:-
+                  </span>
+                </li>
+                <li ng-if="model.propertyData.avgift">
+                  <span>
+                    <strong>Avgift: </strong> {{model.propertyData.avgift}}:-
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Stad: </strong> {{model.propertyData.stad}}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Län: </strong> {{model.propertyData.lan}}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Kommun: </strong> {{model.propertyData.kommun}}
+                  </span>
+                </li>
+                <li ng-if="model.propertyData.rum">
+                  <span>
+                    <strong>Rum: </strong> {{model.propertyData.rum}}
+                  </span>
+                </li>
+                
+                <li ng-if="model.propertyData.byggar">
+                  <span>
+                    <strong>Byggår: </strong> {{model.propertyData.byggar}}
+                  </span>
+                </li>
+                <li ng-if="model.propertyData.boarea">
+                  <span>
+                    <strong>Boarea: </strong> {{model.propertyData.boarea}} m<sup>2</sup>
+                  </span>
+                </li>
+                <li ng-if="model.propertyData.tomtarea">
+                  <span>
+                    <strong>Tomtarea: </strong> {{model.propertyData.tomtarea}} m<sup>2</sup>
+                  </span>
+                </li>
+                <li ng-if="model.propertyData.vaning">
+                  <span>
+                    <strong>Våning: </strong> {{model.propertyData.vaning}}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Hiss: </strong> {{model.propertyData.hiss/1 ? "Ja" : "Nej"}}
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>Balkong: </strong> {{model.propertyData.balkong/1 ? "Ja" : "Nej"}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="row ad-text" ng-bind-html="model.post.excerpt">
+
+          </div>
+
+          <div class="ad-button-area row">
+            <button class="btn btn-sm btn-success col-xs-12 col-sm-12 col-md-2 col-lg-2" ng-click="goTo('fastigheter/'+model.post.slug)">Mer info</button>
+          </div>
         </div>
       </div>
     </div>
