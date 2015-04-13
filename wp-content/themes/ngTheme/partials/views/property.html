@@ -25,21 +25,74 @@
 
     
     <section class="property-quick-info col-xs-12 col-sm-12  col-md-6 col-lg-6 col-sx-offset-0 col-sm-offset-0 col-md-offset-6 col-lg-offset-6">
-      
-      <ul >
-        <li><strong>Stad:</strong> {{property.propertyData.stad}}</li>
-        <li><strong>Pris:</strong> {{property.propertyData.pris}}:-</li>
-        <li><strong>Avgift:</strong> {{property.propertyData.avgift}}:-</li>
-        <li><strong>Typ av bostad:</strong> {{property.propertyData.bostadstyp}}</li>
-        <li><strong>Rum:</strong> {{property.propertyData.rum}}</li>
-        <li><strong>Byggår:</strong> {{property.propertyData.byggar}}</li>
-        <li><strong>Boarea:</strong> {{property.propertyData.boarea}}</li>
-        <li><strong>Tomtarea:</strong> {{property.propertyData.tomtarea}}</li>
-        <li><strong>Län:</strong> {{property.propertyData.lan}}</li>
-        <li><strong>Kommun:</strong> {{property.propertyData.kommun}}</li>
-        <li><strong>Våning:</strong> {{property.propertyData.vaning}}</li>
-        <li><strong>Hiss:</strong> {{property.propertyData.hiss/1 ? "Ja" : "Nej"}}</li>
-        <li><strong>Balkong:</strong> {{property.propertyData.balkong/1 ? "Ja" : "Nej"}}</li>
+      <!-- property.propertyData.stad -->
+      <ul>
+        <li>
+          <span>
+            <strong>Typ av bostad: </strong> {{property.propertyData.bostadstyp}}
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Pris: </strong> {{property.propertyData.pris}}:-
+          </span>
+        </li>
+        <li ng-if="property.propertyData.avgift">
+          <span>
+            <strong>Avgift: </strong> {{property.propertyData.avgift}}:-
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Stad: </strong> {{property.propertyData.stad}}
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Län: </strong> {{property.propertyData.lan}}
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Kommun: </strong> {{property.propertyData.kommun}}
+          </span>
+        </li>
+        <li ng-if="property.propertyData.rum">
+          <span>
+            <strong>Rum: </strong> {{property.propertyData.rum}}
+          </span>
+        </li>
+        
+        <li ng-if="property.propertyData.byggar">
+          <span>
+            <strong>Byggår: </strong> {{property.propertyData.byggar}}
+          </span>
+        </li>
+        <li ng-if="property.propertyData.boarea">
+          <span>
+            <strong>Boarea: </strong> {{property.propertyData.boarea}} m<sup>2</sup>
+          </span>
+        </li>
+        <li ng-if="property.propertyData.tomtarea">
+          <span>
+            <strong>Tomtarea: </strong> {{property.propertyData.tomtarea}} m<sup>2</sup>
+          </span>
+        </li>
+        <li ng-if="property.propertyData.vaning">
+          <span>
+            <strong>Våning: </strong> {{property.propertyData.vaning}}
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Hiss: </strong> {{property.propertyData.hiss/1 ? "Ja" : "Nej"}}
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Balkong: </strong> {{property.propertyData.balkong/1 ? "Ja" : "Nej"}}
+          </span>
+        </li>
       </ul>
     </section>
 
