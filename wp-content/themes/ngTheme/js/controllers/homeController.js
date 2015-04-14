@@ -18,12 +18,12 @@ function($scope, $location, Property, $routeParams, META_VALUES)
   $scope.propFilters = {};
   $scope.propFilters.priceRange = [];
   $scope.propFilters.typeRange = {
-    apartment : true,
-    villa : true,
-    yard : true,
-    other :true,
-    tomt : true,
-    fritidshus : true
+    "Lägenhet" : true,
+    "Villa" : true,
+    "Gård" : true,
+    "Övrigt" :true,
+    "Tomt" : true,
+    "Fritidshus" : true
   };
 
 $scope.Areas=META_VALUES.lan;
@@ -47,12 +47,12 @@ console.log("Län :",$scope.Areas);
     };
     $scope.pricevalue = "0;1000";
     $scope.propFilters.typeRange = {
-    apartment : true,
-    villa : true,
-    yard : true,
-    other :true,
-    tomt : true,
-    fritidshus : true
+    "Lägenhet" : true,
+    "Villa" : true,
+    "Gård" : true,
+    "Övrigt" :true,
+    "Tomt" : true,
+    "Fritidshus" : true
   };
    $scope.balkFilt="";
    $scope.areaFilt="";
@@ -60,12 +60,12 @@ console.log("Län :",$scope.Areas);
 
   $scope.resetPropTypeRange = function() {
     $scope.propFilters.typeRange = {
-      apartment : true,
-      villa : true,
-      yard : true,
-      other :true,
-      tomt : true,
-      fritidshus : true
+      "Lägenhet" : true,
+      "Villa" : true,
+      "Gård" : true,
+      "Övrigt" :true,
+      "Tomt" : true,
+      "Fritidshus" : true
     };
   };
 

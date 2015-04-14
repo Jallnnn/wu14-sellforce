@@ -52,22 +52,22 @@
             <label>Bostadstyp:</label> 
             <div class="checkbox">
               <label class="checkbox-inline">
-                <input type="checkbox" ng-model="propFilters.typeRange.apartment" id="inlineCheckbox1" value="1"> Lägenhet
+                <input type="checkbox" ng-model="propFilters.typeRange['Lägenhet']" id="inlineCheckbox1" value="1"> Lägenhet
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" ng-model="propFilters.typeRange.villa" id="inlineCheckbox2" value="1"> Villa
+                <input type="checkbox" ng-model="propFilters.typeRange['Villa']" id="inlineCheckbox2" value="1"> Villa
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" ng-model="propFilters.typeRange.fritidshus" id="inlineCheckbox3" value="1"> Fritidshus
+                <input type="checkbox" ng-model="propFilters.typeRange['Fritidshus']" id="inlineCheckbox3" value="1"> Fritidshus
               </label>
                   <label class="checkbox-inline">
-                <input type="checkbox" ng-model="propFilters.typeRange.yard" id="inlineCheckbox4" value="1"> Gård
+                <input type="checkbox" ng-model="propFilters.typeRange['Gård']" id="inlineCheckbox4" value="1"> Gård
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" ng-model="propFilters.typeRange.tomt" id="inlineCheckbox5" value="1"> Tomt
+                <input type="checkbox" ng-model="propFilters.typeRange['Tomt']" id="inlineCheckbox5" value="1"> Tomt
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" ng-model="propFilters.typeRange.other" id="inlineCheckbox5" checked="checked" value="1"> Övrigt
+                <input type="checkbox" ng-model="propFilters.typeRange['Övrigt']" id="inlineCheckbox5" checked="checked" value="1"> Övrigt
               </label>
             </div>
             <button ng-click="resetPropTypeRange()" class="btn btn-default">Alla Typer</button>
